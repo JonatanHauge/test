@@ -10,17 +10,17 @@ def cli():
     """Command line interface."""
     pass
 
+
 @click.command()
 @click.option("--lr", default=1e-3, help="learning rate to use for training")
-@click.option("--epochs", default = 10, help="Number of training epochs")
+@click.option("--epochs", default=10, help="Number of training epochs")
 @click.option("--output-dir", default="models/", help="Directory to save model checkpoints")
-@click.option("--plot", default=False, help = "Plot loss over epochs if True")
+@click.option("--plot", default=False, help="Plot loss over epochs if True")
 def train(lr, epochs, output_dir, plot):
     """Train a model on MNIST."""
     print("Training day and night")
-    print('Learning_rate', lr)
-    print('epochs:' , epochs)
-
+    print("Learning_rate", lr)
+    print("epochs:", epochs)
 
     # TODO: Implement training loop here
     model = MyNeuralNet(784, 10)
@@ -50,9 +50,9 @@ def train(lr, epochs, output_dir, plot):
             running_loss += loss.item()
         else:
             print(f"Training loss: {running_loss/len(train_loader)}")
-            loss_epochs.append(running_loss/len(train_loader))
+            loss_epochs.append(running_loss / len(train_loader))
     if plot:
-        fig, ax = plt.subplots(1,1)
+        fig, ax = plt.subplots(1, 1)
         ax.plot(loss_epochs)
         plt.savefig("reports/figures/loss.png")
         plt.show()
@@ -61,12 +61,13 @@ def train(lr, epochs, output_dir, plot):
     torch.save(model.state_dict(), checkpoint_path)
     print(f"Checkpoint saved to {checkpoint_path}")
 
+
 @click.command()
 @click.argument("model_checkpoint")
 def evaluate(model_checkpoint):
     """Evaluate a trained model."""
     print("Evaluating like my life dependends on it")
-    print('Model checkpoint: ', model_checkpoint)
+    print("Model checkpoint: ", model_checkpoint)
 
     # TODO: Implement evaluation logic here
     model = MyNeuralNet(784, 10)
@@ -90,7 +91,8 @@ def evaluate(model_checkpoint):
             correct += (predicted == labels).sum().item()
     accuracy = 100 * correct / total
 
-    print(f'Accuracy of the model on the test images: {accuracy:.2f}%')
+    print(f"Accuracy of the model on the test images: {accuracy:.2f}%")
+
 
 cli.add_command(train)
 cli.add_command(evaluate)

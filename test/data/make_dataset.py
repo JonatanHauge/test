@@ -1,10 +1,9 @@
 import torch
 import os
 
-if __name__ == '__main__':
-    
+if __name__ == "__main__":
     # Get the data and process it
-    
+
     base_path = "data/raw/corruptmnist/"
 
     train_images_list = []
@@ -18,8 +17,8 @@ if __name__ == '__main__':
     train_images = torch.cat(train_images_list, dim=0)
     train_targets = torch.cat(train_targets_list, dim=0)
 
-    mean_train = train_images.mean()  
-    std_train = train_images.std() 
+    mean_train = train_images.mean()
+    std_train = train_images.std()
     train_images = (train_images - mean_train) / (std_train + 1e-8)  # Normalize train data
 
     # Test data

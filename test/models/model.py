@@ -2,14 +2,16 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 
+
 class MyNeuralNet(torch.nn.Module):
-    """ Basic neural network class. 
-    
+    """Basic neural network class.
+
     Args:
         in_features: number of input features
         out_features: number of output features
-    
+
     """
+
     def __init__(self, in_features: int, out_features: int) -> None:
         super().__init__()
         self.fc1 = nn.Linear(in_features, 256)
@@ -19,10 +21,10 @@ class MyNeuralNet(torch.nn.Module):
         self.fc3 = nn.Linear(128, 64)
         self.bn2 = nn.BatchNorm1d(64)
         self.fc4 = nn.Linear(64, out_features)
-    
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Forward pass of the model.
-        
+
         Args:
             x: input tensor expected to be of shape [N,in_features]
 
