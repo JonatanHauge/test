@@ -40,6 +40,20 @@ clean:
 data: requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py
 
+#Default values
+lr = 0.001
+epochs = 10
+plot = True
+output-dir = "models/"
+
+train: requirements
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/train_model.py train --lr $(lr) --epochs $(epochs) --plot $(plot) --output-dir $(output-dir)
+
+model_checkpoint = "trained_model.pt"
+evaluate: requirements
+	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/train_model.py evaluate $(model_checkpoint)
+
+
 #################################################################################
 # Documentation RULES                                                           #
 #################################################################################
