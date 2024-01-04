@@ -12,15 +12,15 @@ class MyNeuralNet(torch.nn.Module):
 
     """
 
-    def __init__(self, in_features: int, out_features: int) -> None:
+    def __init__(self, in_features: int, out_features: int, hidden_1:int, hidden_2:int, hidden_3:int, dropout:float) -> None:
         super().__init__()
-        self.fc1 = nn.Linear(in_features, 256)
-        self.bn1 = nn.BatchNorm1d(256)
-        self.fc2 = nn.Linear(256, 128)
-        self.dropout1 = nn.Dropout(0.5)
-        self.fc3 = nn.Linear(128, 64)
-        self.bn2 = nn.BatchNorm1d(64)
-        self.fc4 = nn.Linear(64, out_features)
+        self.fc1 = nn.Linear(in_features, hidden_1)
+        self.bn1 = nn.BatchNorm1d(hidden_1)
+        self.fc2 = nn.Linear(hidden_1, hidden_2)
+        self.dropout1 = nn.Dropout(dropout)
+        self.fc3 = nn.Linear(hidden_2, hidden_3)
+        self.bn2 = nn.BatchNorm1d(hidden_3)
+        self.fc4 = nn.Linear(hidden_3, out_features)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Forward pass of the model.

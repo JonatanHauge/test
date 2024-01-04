@@ -44,7 +44,7 @@ data: requirements
 lr = 0.001
 epochs = 10
 plot = True
-output-dir = "models/"
+output-dir = "model_checkpoints/"
 
 train: requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/train_model.py train --lr $(lr) --epochs $(epochs) --plot $(plot) --output-dir $(output-dir)

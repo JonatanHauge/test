@@ -3,6 +3,7 @@ import torch
 from models.model import MyNeuralNet
 import matplotlib.pyplot as plt
 import os
+import hydra
 
 
 @click.group()
@@ -10,11 +11,10 @@ def cli():
     """Command line interface."""
     pass
 
-
 @click.command()
 @click.option("--lr", default=1e-3, help="learning rate to use for training")
 @click.option("--epochs", default=10, help="Number of training epochs")
-@click.option("--output-dir", default="models/", help="Directory to save model checkpoints")
+@click.option("--output-dir", default="model_checkpoints/", help="Directory to save model checkpoints")
 @click.option("--plot", default=False, help="Plot loss over epochs if True")
 def train(lr, epochs, output_dir, plot):
     """Train a model on MNIST."""
@@ -23,7 +23,7 @@ def train(lr, epochs, output_dir, plot):
     print("epochs:", epochs)
 
     # TODO: Implement training loop here
-    model = MyNeuralNet(784, 10)
+    model = MyNeuralNet(784, 10, 256, 128, 64, 0.5)
     train_images = torch.load("data/processed/corruptmnist/train_images.pt")
     train_targets = torch.load("data/processed/corruptmnist/train_target.pt")
     train_set = torch.utils.data.TensorDataset(train_images, train_targets)
@@ -70,8 +70,8 @@ def evaluate(model_checkpoint):
     print("Model checkpoint: ", model_checkpoint)
 
     # TODO: Implement evaluation logic here
-    model = MyNeuralNet(784, 10)
-    model_dict = torch.load(os.path.join(f"models/", model_checkpoint))
+    model = MyNeuralNet(784, 10, 256, 128, 64, 0.5)
+    model_dict = torch.load(os.path.join(f"model_checkpoints/", model_checkpoint))
     model.load_state_dict(model_dict)
     test_images = torch.load("data/processed/corruptmnist/test_images.pt")
     test_targets = torch.load("data/processed/corruptmnist/test_target.pt")

@@ -9,7 +9,7 @@ if __name__ == "__main__":
     train_images_list = []
     train_targets_list = []
 
-    for i in range(6):
+    for i in range(10):
         train_images_list.append(torch.load(os.path.join(base_path, f"train_images_{i}.pt")))
         train_targets_list.append(torch.load(os.path.join(base_path, f"train_target_{i}.pt")))
 

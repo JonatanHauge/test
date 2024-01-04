@@ -17,7 +17,7 @@ def predict(
         Tensor of shape [N, d] where N is the number of samples and d is the output dimension of the model
 
     """
-    model = MyNeuralNet(784, 10)
+    model = MyNeuralNet(784, 10, 256, 128, 64, 0.5)
     model_dict = torch.load(model_checkpoint)
     model.load_state_dict(model_dict)
     model.eval()
@@ -48,3 +48,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     torch.save(predict(args.model_checkpoint, args.data_path), "test/predictions.pt")
+    print("Model predictions saved to test/predictions.pt")
