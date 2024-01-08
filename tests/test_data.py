@@ -26,4 +26,4 @@ def test_data_lenght():
     #assert torch.unique(train_target).shape == torch.Size([10])
     #assert torch.unique(test_target).shape == torch.Size([10])
 
-    assert os.path.exists(os.path.join(_PATH_DATA, "raw", "corruptmnist", "test", "test_images.pt"))
+    assert os.path.exists(os.path.join(_PATH_DATA, "raw", "corruptmnist", "test_images.pt"))
