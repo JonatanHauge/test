@@ -3,14 +3,14 @@ from tests import _PATH_DATA, _PROJECT_ROOT, _TEST_ROOT
 import os
 import pytest
 
-@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_images.pt")), 
-                    reason="Data files not found")
-@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "test_images.pt")),
-                    reason="Data files not found")
-@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_target.pt")),
-                    reason="Data files not found")
-@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "test_target.pt")),
-                    reason="Data files not found")
+#@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_images.pt")), 
+#                    reason="Data files not found")
+#@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "test_images.pt")),
+#                    reason="Data files not found")
+#@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_target.pt")),
+#                    reason="Data files not found")
+#@pytest.mark.skipif(not os.path.exists(os.path.join(_PATH_DATA, "processed", "corruptmnist", "test_target.pt")),
+#                    reason="Data files not found")
 def test_data_lenght():
  
     train = torch.load(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_images.pt"))
