@@ -1,0 +1,14 @@
+model_params:
+  hidden_1: 256
+  hidden:2: 128
+  hidden_3: 64
+  dropout: 0.4
+test_params:
+  train: true
+  lr: 0.005
+  batch_size: 64
+  epochs: 5
+  output_dir: model_checkpoints/
+  plot: false
+  model_checkpoint: model_checkpoints/trained_model.pt
+  test: true

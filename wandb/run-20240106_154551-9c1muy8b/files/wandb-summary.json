@@ -1,0 +1,1 @@
+{"Training loss": 0.16206988337857034, "_timestamp": 1704552375.2557352, "_runtime": 23.818488121032715, "_step": 5, "Loss Plot": {"_type": "image-file", "sha256": "c2bb5bdd02762dc1619dfa26d94ad2f9e9ddcbf59a041150bf8aea1cf597d536", "size": 25124, "path": "media/images/Loss Plot_5_c2bb5bdd02762dc1619d.png", "format": "png", "width": 1000, "height": 600}, "_wandb": {"runtime": 22}}

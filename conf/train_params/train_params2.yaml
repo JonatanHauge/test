@@ -1,0 +1,9 @@
+# @package train_params
+train: True
+lr: 0.005
+batch_size: 64
+epochs: 5
+output_dir: model_checkpoints/
+plot: False
+model_checkpoint: model_checkpoints/trained_model.pt
+test: False

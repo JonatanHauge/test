@@ -1,5 +1,5 @@
 import torch
-from models.model import MyNeuralNet
+from test.models.model import MyNeuralNet
 import argparse
 
 

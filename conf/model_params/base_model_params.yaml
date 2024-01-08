@@ -1,0 +1,5 @@
+# @package model_params
+hidden_1: 256
+hidden:2 : 128
+hidden_3: 64
+dropout: 0.4
