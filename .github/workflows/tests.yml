@@ -23,6 +23,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_tests.txt
+    - name: Login wandb
+      run: |
+        wandb login ${beb7c11c4c3f44dc27870320d4c5fb3d2ee1debe}
     - name: Test with pytest
       run: |
         pip install pytest
