@@ -23,4 +23,5 @@ def test_data_lenght():
     assert train[0].shape == torch.Size([28, 28])
     assert torch.unique(train_target).shape == torch.Size([10])
     assert torch.unique(test_target).shape == torch.Size([10])
+    assert True
 
