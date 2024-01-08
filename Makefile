@@ -48,9 +48,9 @@ data: requirements
 model_params = base_model_params
 train_params = base_train_params
 
-train: 
+train:
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/train_model.py model_params=$(model_params) train_params=$(train_params)
-	
+
 #train --lr $(lr) --epochs $(epochs) --plot $(plot) --output-dir $(output-dir)
 
 model_checkpoint = "trained_model.pt"

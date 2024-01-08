@@ -44,7 +44,7 @@ class MyNeuralNet(pl.LightningModule):
         x = F.log_softmax(self.fc4(x), dim=1)
 
         return x
-    
+
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
@@ -54,7 +54,7 @@ class MyNeuralNet(pl.LightningModule):
         self.log('train_acc', acc)
         self.logger.experiment.log({'logits': wandb.Histogram(y_hat.detach().cpu().numpy())})
         return loss
-    
+
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=1e-3)
         return optimizer

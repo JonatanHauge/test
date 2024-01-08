@@ -79,7 +79,7 @@ def train(lr, epochs, output_dir, plot):
     plt.title('Loss per iteration')
     wandb.log({"Running_loss Plot": wandb.Image(plt)})
     plt.close()
-    
+
     if plot:
         fig, ax = plt.subplots(1, 1)
         ax.plot(loss_epochs)
@@ -98,8 +98,8 @@ def train_pl(lr, epochs, output_dir, plot, test=False):
     print("Learning_rate", lr)
     print("epochs:", epochs)
     checkpoint_callback = ModelCheckpoint(
-        dirpath=output_dir, 
-        filename="{epoch}-{step}", 
+        dirpath=output_dir,
+        filename="{epoch}-{step}",
         save_top_k=1,  # Save only the best checkpoint based on the metric you are monitoring
         monitor="train_loss",  # Replace with your validation metric
         mode="min",  # or 'max' depending on the metric
@@ -118,7 +118,7 @@ def train_pl(lr, epochs, output_dir, plot, test=False):
         train_targets = torch.load("data/processed/corruptmnist/train_target.pt")
         train_set = torch.utils.data.TensorDataset(train_images, train_targets)
         train_loader = torch.utils.data.DataLoader(train_set, batch_size=64, shuffle=True, num_workers=4)
-        
+
         trainer.fit(model, train_loader)
     else:
         #Mock data
@@ -171,9 +171,9 @@ def train_or_eval(config):
     if train_config.train:
         config_dict = OmegaConf.to_container(train_config, resolve=True)  # Convert to a plain dictionary
         wandb.init(config=config_dict)
-        train_pl(lr=train_config.lr, 
-                epochs=train_config.epochs, 
-                output_dir=train_config.output_dir, 
+        train_pl(lr=train_config.lr,
+                epochs=train_config.epochs,
+                output_dir=train_config.output_dir,
                 plot=train_config.plot, test=train_config.test)
     else:
         evaluate(model_checkpoint=model_config.model_checkpoint)
