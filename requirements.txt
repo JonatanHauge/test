@@ -5,3 +5,4 @@ omegaconf==2.3.0
 pytest==7.4.4
 pytorch_lightning==2.1.0
 torch==2.1.2
+wandb==0.16.1
