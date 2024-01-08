@@ -13,6 +13,8 @@ import pytest
 #                    reason="Data files not found")
 def test_data_lenght():
  
+    exit_code = os.system('make data')
+    assert exit_code == 0, 'Data generation failed'
     train = torch.load(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_images.pt"))
     test = torch.load(os.path.join(_PATH_DATA, "processed", "corruptmnist", "test_images.pt"))
     train_target = torch.load(os.path.join(_PATH_DATA, "processed", "corruptmnist", "train_target.pt"))
@@ -23,6 +25,4 @@ def test_data_lenght():
     assert train[0].shape == torch.Size([28, 28])
     assert torch.unique(train_target).shape == torch.Size([10])
     assert torch.unique(test_target).shape == torch.Size([10])
-    assert True
-    assert False
 
