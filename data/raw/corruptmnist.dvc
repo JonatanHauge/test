@@ -1,6 +1,3 @@
 outs:
-- md5: 8ad45b7c973fc120a95ff29b6c1da79f.dir
-  size: 112730734
-  nfiles: 14
-  hash: md5
+- hash: md5
   path: corruptmnist

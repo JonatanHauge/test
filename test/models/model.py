@@ -1,7 +1,8 @@
-import torch
-from torch import nn
-import torch.nn.functional as F
 import pytorch_lightning as pl
+import torch
+import torch.nn.functional as F
+from torch import nn
+
 import wandb
 
 
@@ -14,7 +15,9 @@ class MyNeuralNet(pl.LightningModule):
 
     """
 
-    def __init__(self, in_features: int, out_features: int, hidden_1:int, hidden_2:int, hidden_3:int, dropout:float) -> None:
+    def __init__(
+        self, in_features: int, out_features: int, hidden_1: int, hidden_2: int, hidden_3: int, dropout: float
+    ) -> None:
         super().__init__()
         self.fc1 = nn.Linear(in_features, hidden_1)
         self.bn1 = nn.BatchNorm1d(hidden_1)
@@ -50,9 +53,9 @@ class MyNeuralNet(pl.LightningModule):
         y_hat = self(x)
         loss = self.criterium(y_hat, y)
         acc = (y_hat.argmax(1) == y).float().mean()
-        self.log('train_loss', loss) #ChatGPT forslag
-        self.log('train_acc', acc)
-        self.logger.experiment.log({'logits': wandb.Histogram(y_hat.detach().cpu().numpy())})
+        self.log("train_loss", loss)  # ChatGPT forslag
+        self.log("train_acc", acc)
+        self.logger.experiment.log({"logits": wandb.Histogram(y_hat.detach().cpu().numpy())})
         return loss
 
     def configure_optimizers(self):

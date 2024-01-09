@@ -1,4 +1,10 @@
 [core]
-    remote = storage
+    remote = remote_storage
 ['remote "storage"']
     url = gdrive://1O0XYM5Vb9vrS-EeHD_BaEgonhVY3IA9Q
+['remote "remote_storage"']
+    url = gs://ml-ops-mnist-data/
+    version_aware = true
+['remote "remote_storage2"']
+    url = gs://ml-ops-mnist-test/
+    version_aware = true

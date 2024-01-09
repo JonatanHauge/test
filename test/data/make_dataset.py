@@ -1,5 +1,6 @@
-import torch
 import os
+
+import torch
 
 if __name__ == "__main__":
     # Get the data and process it

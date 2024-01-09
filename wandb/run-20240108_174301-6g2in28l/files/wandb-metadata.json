@@ -1,0 +1,48 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.10.0",
+    "heartbeatAt": "2024-01-08T16:43:03.225219",
+    "startedAt": "2024-01-08T16:43:01.901349",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "model_params=base_model_params",
+        "train_params=base_train_params"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\johau\\Desktop\\test\\test\\train_model.py",
+    "codePathLocal": "test\\train_model.py",
+    "codePath": "test\\train_model.py",
+    "git": {
+        "remote": "https://github.com/JonatanHauge/test.git",
+        "commit": "ec8cc94ffa5a64097a889c0938b062427c066c1a"
+    },
+    "email": "johauge@hotmail.com",
+    "root": "C:/Users/johau/Desktop/test",
+    "host": "LAPTOP-KMVQH6J0",
+    "username": "johau",
+    "executable": "C:\\Users\\johau\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2900.0,
+        "min": 0.0,
+        "max": 2900.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2900.0,
+            "min": 0.0,
+            "max": 2900.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 475.82519149780273,
+            "used": 232.73802185058594
+        }
+    },
+    "memory": {
+        "total": 15.372379302978516
+    }
+}

@@ -1,6 +1,7 @@
-import torch
-from test.models.model import MyNeuralNet
 import argparse
+from test.models.model import MyNeuralNet
+
+import torch
 
 
 def predict(
